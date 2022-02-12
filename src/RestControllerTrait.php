@@ -10,7 +10,7 @@ use yii\data\Pagination;
 use yii\data\Sort;
 use yii\db\ActiveQueryInterface;
 
-trait TableControllerTrait
+trait RestControllerTrait
 {
     use StatelessControllerTrait;
 
