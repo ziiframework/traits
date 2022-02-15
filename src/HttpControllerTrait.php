@@ -96,6 +96,11 @@ trait HttpControllerTrait
     private function extractAuthorizationTokenFromHeader(): ?string
     {
         $authorization = Yii::$app->getRequest()->getHeaders()->get('Authorization');
+
+        if (!pf_is_string_filled($authorization)) {
+            return null;
+        }
+
         if (preg_match('/^Bearer\s+(.*?)$/', $authorization, $matches)) {
             if (is_string($matches[1] ?? null)) {
                 $token = trim($matches[1]);
@@ -111,11 +116,14 @@ trait HttpControllerTrait
     private function extractAuthorizationTokenFromQuery(): ?string
     {
         $queryAccessToken = Yii::$app->getRequest()->get('AccessToken');
-        if (is_string($queryAccessToken ?? null)) {
-            $queryAccessToken = trim($queryAccessToken);
-            if (!empty($queryAccessToken)) {
-                return $queryAccessToken;
-            }
+
+        if (!pf_is_string_filled($queryAccessToken)) {
+            return null;
+        }
+
+        $queryAccessToken = trim($queryAccessToken);
+        if (!empty($queryAccessToken)) {
+            return $queryAccessToken;
         }
 
         return null;
