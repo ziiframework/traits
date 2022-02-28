@@ -55,7 +55,7 @@ trait RestControllerTrait
         parent::checkAccess($action, $model, $params);
     }
 
-    protected function makeActiveDataProviderConfig(ActiveQueryInterface $query, array $querySort = []): ActiveDataProvider
+    protected function makeActiveDataProviderConfig(ActiveQueryInterface $query, array $querySort = [], array $pageConfig = []): ActiveDataProvider
     {
         if (empty($querySort)) {
             $querySort = ['id' => SORT_DESC];
@@ -68,9 +68,9 @@ trait RestControllerTrait
             'pagination' => [
                 'class' => Pagination::class,
                 'params' => Yii::$app->getRequest()->getQueryParams(),
-                'pageParam' => 'page',
-                'pageSizeParam' => 'pageSize',
-                'pageSizeLimit' => [1, 20],
+                'pageParam' => $pageConfig['pageParam'] ?? 'page',
+                'pageSizeParam' => $pageConfig['pageSizeParam'] ?? 'pageSize',
+                'pageSizeLimit' => $pageConfig['pageSizeLimit'] ?? [1, 20],
             ],
             'sort' => [
                 'class' => Sort::class,
