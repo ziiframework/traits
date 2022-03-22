@@ -68,14 +68,14 @@ trait RestControllerTrait
             'pagination' => [
                 'class' => Pagination::class,
                 'params' => Yii::$app->getRequest()->getQueryParams(),
-                'pageParam' => $pageConfig['pageParam'] ?? 'page',
-                'pageSizeParam' => $pageConfig['pageSizeParam'] ?? 'pageSize',
+                'pageParam' => $pageConfig['pageParam'] ?? '_page',
+                'pageSizeParam' => $pageConfig['pageSizeParam'] ?? '_perPage',
                 'pageSizeLimit' => $pageConfig['pageSizeLimit'] ?? [1, 20],
             ],
             'sort' => [
                 'class' => Sort::class,
                 'params' => Yii::$app->getRequest()->getQueryParams(),
-                'sortParam' => 'sort',
+                'sortParam' => '_sort',
                 'enableMultiSort' => true,
                 'defaultOrder' => $querySort,
             ],
