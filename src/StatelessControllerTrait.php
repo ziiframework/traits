@@ -31,9 +31,9 @@ trait StatelessControllerTrait
 
         if (isset($php_url_part[3]) && !isset($this->actions()[$php_url_part[3]])) {
             $validatorClass = "\\Zpp\\Modules\\"
-                . u($this->module->id)->camel()->title()
+                . u($this->module->id)->camel()->title()->toString()
                 . "\\Models\\"
-                . u($this->id)->camel()->title() . 'Validator';
+                . u($this->id)->camel()->title()->toString() . 'Validator';
 
             if (!class_exists($validatorClass)) {
                 throw new UnknownClassException("Class $validatorClass does not exist");
