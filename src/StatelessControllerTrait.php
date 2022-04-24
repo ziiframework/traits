@@ -70,6 +70,8 @@ trait StatelessControllerTrait
                     'X-Pagination-Total-Count',
                     'X-Pagination-Per-Page',
                     'X-Pagination-Page-Count',
+                    'X-Bearer-Credential',
+                    'X-Bearer-Credential-Seconds',
                 ],
             ],
         ];
