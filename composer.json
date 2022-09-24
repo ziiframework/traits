@@ -24,8 +24,8 @@
         "php": ">=7.4.0",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "charescape/php-functions": "1.0.x-dev",
-        "symfony/string": "^5.0||^6.0",
+        "charescape/php-functions": "~1.0.0",
+        "symfony/string": "^5.4||^6.0",
         "ziiframework/zii": ">=3.5.0"
     },
     "require-dev": {
