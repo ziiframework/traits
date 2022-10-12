@@ -65,14 +65,7 @@ trait StatelessControllerTrait
                 'Access-Control-Request-Headers' => ['*'],
                 'Access-Control-Allow-Credentials' => true,
                 'Access-Control-Max-Age' => 86400,
-                'Access-Control-Expose-Headers' => [
-                    'X-Pagination-Current-Page',
-                    'X-Pagination-Total-Count',
-                    'X-Pagination-Per-Page',
-                    'X-Pagination-Page-Count',
-                    'X-Bearer-Credential',
-                    'X-Bearer-Credential-Seconds',
-                ],
+                'Access-Control-Expose-Headers' => ['*'],
             ],
         ];
 
