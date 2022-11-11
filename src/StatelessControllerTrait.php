@@ -47,7 +47,11 @@ trait StatelessControllerTrait
             $this->validator->setScenario(u($php_url_part[3])->camel()->title()->toString());
             $this->validator->setAttributes(Yii::$app->getRequest()->get());
 
-            if (Yii::$app->getRequest()->getIsPost()) {
+            if (
+                Yii::$app->getRequest()->getIsPost()
+                || Yii::$app->getRequest()->getIsPut()
+                || Yii::$app->getRequest()->getIsPatch()
+            ) {
                 $this->validator->setAttributes(Yii::$app->getRequest()->post());
             }
         }
